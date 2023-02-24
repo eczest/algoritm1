@@ -6,34 +6,22 @@
 #include <time.h>
 #include <fstream>
 #include <ctime>
+#include <iterator>
 #ifndef CLION_FUNCTION_H
 #define CLION_FUNCTION_H
-/*int* arrayrandint( int b,int a){
-
-    //int res [sizeof(array)/sizeof(array[0])];
-    int res[a];
-   // std::cout<<sizeof(array)<<std::endl;
-    for(int &i:res){
-        i=rand()%b;
-        std::cout<<i<<std::endl;
-    }
-    return res ;
-}*/
-/*float* arrayrandfloat(int b,int  a){
-    float res[a];
-    for(float i:res){
-        i=rand()%b;
-        std::cout<<i<<std::endl;
-    }
-    return res;
-}*/
-void arrayrandint(int A[],int N,int B)
+void arrayrand(int* beg, int* end, int rangeRand)
 {
-    for (int i = 0; i < N; ++i)
-    {
-        A[i] = rand() % B;
+    while (beg != end) {
+        *beg = rand() % rangeRand;
+        ++beg;
     }
-
+}
+void arrayrand_double(int* beg, int* end, double rangeRand)
+{
+    while (beg != end) {
+        *beg = rand() % rangeRand;
+        ++beg;
+    }
 }
 int sum_array(int arr[],int b){
     int a = 0;
@@ -272,5 +260,10 @@ int vvodfile(int arr[],int size){
         std::cout<<arr[i];
     }
 }
-
+double vvodfile(double arr[],int size){
+    std::ofstream("mass.rtf");
+    for (int i=0;i<size;i++){
+        std::cout<<arr[i];
+    }
+}
 #endif //CLION_FUNCTION_H
